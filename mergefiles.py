@@ -23,6 +23,9 @@ if len(images) > 1:
 else:
     images[0].save(directory + '/mergedImages.pdf', save_all=True)
 
-for filename in os.listdir(directory):
-    if filename.endswith(".jpg") or filename.endswith(".png"):
-        os.remove(directory + '/' + filename)
+answer = tkinter.messagebox.askyesno("Delete files?", "Do you want to delete the original image files?")
+
+if answer:
+    for filename in os.listdir(directory):
+        if filename.endswith(".jpg") or filename.endswith(".png"):
+            os.remove(directory + '/' + filename)
